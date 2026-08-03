@@ -1049,7 +1049,7 @@ export function CountryInfo() {
                 ["Driving Side", data.drivingSide],
               ] as [string, string][]
             ).map(([k, v]) => (
-              <li key={k} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-3">
+              <li key={k} className="grid grid-cols-[5.5rem_minmax(0,1fr)] sm:grid-cols-[7rem_minmax(0,1fr)] gap-2 sm:gap-3">
                 <span className="text-muted-foreground">{k}</span>
                 <span className="truncate font-medium">{v}</span>
               </li>
@@ -1479,13 +1479,30 @@ function CurrencySelect({
   onChange: (v: string) => void;
   label: string;
 }) {
+  const selected = FX_CURRENCIES.find(([code]) => code === value);
+  const currName = selected ? selected[1] : "";
+
   return (
     <div className="relative w-full">
+      {/* Custom styled visible trigger button */}
+      <div className="glass-chip flex items-center justify-between min-w-0 rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[12px] sm:text-[12.5px] font-medium transition-all pointer-events-none">
+        <span className="truncate flex items-center gap-1 min-w-0 pr-1">
+          <span className="font-bold text-xs sm:text-sm text-foreground shrink-0">{value}</span>
+          {currName && (
+            <span className="text-[11px] text-muted-foreground truncate hidden sm:inline">
+              - {currName}
+            </span>
+          )}
+        </span>
+        <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-muted-foreground ml-0.5" />
+      </div>
+
+      {/* Invisible native select for full mobile OS picker support */}
       <select
         aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="glass-chip w-full appearance-none min-w-0 truncate rounded-2xl bg-transparent pl-3.5 pr-8 py-2.5 text-[12.5px] font-medium outline-none cursor-pointer"
+        className="absolute inset-0 h-full w-full opacity-0 cursor-pointer text-foreground bg-background"
       >
         {FX_CURRENCIES.map(([code, name]) => (
           <option key={code} value={code} className="bg-background text-foreground">
@@ -1493,7 +1510,6 @@ function CurrencySelect({
           </option>
         ))}
       </select>
-      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
     </div>
   );
 }

@@ -165,17 +165,17 @@ export function TopBar({ onToggleSidebar }: { onToggleSidebar?: () => void }) {
 
   return (
     <div className="relative z-[1100] flex flex-col gap-4">
-      <header className="grid grid-cols-[minmax(0,1fr)_auto] md:grid-cols-[1fr_minmax(0,640px)_1fr] items-center gap-4">
-        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+      <header className="grid grid-cols-[minmax(0,1fr)_auto] md:grid-cols-[1fr_minmax(0,640px)_1fr] items-center gap-2 sm:gap-4">
+        <div className="flex min-w-0 items-center gap-1.5 sm:gap-3">
           <button
             type="button"
             onClick={onToggleSidebar}
             aria-label="Toggle navigation menu"
-            className="glass-strong grid h-11 w-11 shrink-0 place-items-center rounded-2xl lg:hidden hover:bg-glass"
+            className="glass-strong grid h-9 w-9 sm:h-11 sm:w-11 shrink-0 place-items-center rounded-xl sm:rounded-2xl lg:hidden hover:bg-glass"
           >
-            <Menu className="h-5 w-5 text-primary" strokeWidth={1.8} />
+            <Menu className="h-4 w-4 sm:h-5 sm:w-5 text-primary" strokeWidth={1.8} />
           </button>
-          <div className="glass-strong grid h-11 w-11 sm:h-14 sm:w-14 shrink-0 place-items-center rounded-2xl overflow-hidden p-1 shadow-md border border-glass-border">
+          <div className="glass-strong grid h-9 w-9 sm:h-14 sm:w-14 shrink-0 place-items-center rounded-xl sm:rounded-2xl overflow-hidden p-0.5 sm:p-1 shadow-md border border-glass-border">
             <img
               src="/images/geoscope-icon-dark.png"
               alt="GeoScope AI Logo"
@@ -187,8 +187,8 @@ export function TopBar({ onToggleSidebar }: { onToggleSidebar?: () => void }) {
               className="hidden h-full w-full object-contain dark:block"
             />
           </div>
-          <div className="min-w-0">
-            <h1 className="text-base sm:text-xl md:text-[22px] leading-tight font-bold tracking-tight whitespace-nowrap">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-sm sm:text-xl md:text-[22px] leading-tight font-bold tracking-tight truncate">
               GeoScope AI
             </h1>
             <p className="hidden sm:block truncate text-xs text-muted-foreground">
@@ -318,12 +318,12 @@ export function TopBar({ onToggleSidebar }: { onToggleSidebar?: () => void }) {
           )}
         </div>
 
-        <div className="flex shrink-0 items-center gap-2 justify-end ml-auto">
-          <ThemeToggle className="w-[92px]" />
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 justify-end ml-auto">
+          <ThemeToggle className="w-auto sm:w-[92px]" />
           <button
             onClick={useMyLocation}
             title="Use my location"
-            className="glass-chip grid h-12 w-12 place-items-center rounded-2xl text-primary"
+            className="glass-chip grid h-9 w-9 sm:h-12 sm:w-12 place-items-center rounded-xl sm:rounded-2xl text-primary"
           >
             {locating ? (
               <span className="relative flex h-3 w-3 shrink-0">
@@ -331,7 +331,7 @@ export function TopBar({ onToggleSidebar }: { onToggleSidebar?: () => void }) {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
             ) : (
-              <Navigation className="h-[18px] w-[18px]" strokeWidth={1.9} />
+              <Navigation className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={1.9} />
             )}
           </button>
         </div>

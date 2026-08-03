@@ -34,24 +34,24 @@ export const useTheme = () => useContext(ThemeContext);
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const { theme, setTheme } = useTheme();
   return (
-    <div className={`glass-chip flex items-center gap-1 rounded-full p-1 ${className}`}>
+    <div className={`glass-chip flex items-center gap-0.5 sm:gap-1 rounded-full p-0.5 sm:p-1 ${className}`}>
       <button
         aria-label="Light mode"
         onClick={() => setTheme("light")}
-        className={`grid h-9 flex-1 place-items-center rounded-full transition-all ${
+        className={`grid h-8 w-8 sm:h-9 sm:w-auto sm:flex-1 place-items-center rounded-full transition-all ${
           theme === "light" ? "glass-strong text-sunny" : "text-muted-foreground"
         }`}
       >
-        <Sun className="h-[18px] w-[18px]" strokeWidth={1.9} />
+        <Sun className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={1.9} />
       </button>
       <button
         aria-label="Dark mode"
         onClick={() => setTheme("dark")}
-        className={`grid h-9 flex-1 place-items-center rounded-full transition-all ${
+        className={`grid h-8 w-8 sm:h-9 sm:w-auto sm:flex-1 place-items-center rounded-full transition-all ${
           theme === "dark" ? "glass-strong text-primary" : "text-muted-foreground"
         }`}
       >
-        <Moon className="h-[18px] w-[18px]" strokeWidth={1.9} />
+        <Moon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={1.9} />
       </button>
     </div>
   );
