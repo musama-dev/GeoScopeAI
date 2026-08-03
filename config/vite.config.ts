@@ -14,8 +14,8 @@ export default defineConfig({
     tanstackStart({
       server: { entry: "src/server.ts" },
       prerender: {
-        enabled: true
-      }
+        enabled: false,
+      },
     }),
     react(),
     tailwindcss()
