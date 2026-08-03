@@ -14,7 +14,7 @@ export default defineConfig({
     tanstackStart({
       server: { entry: "src/server.ts" },
       prerender: {
-        enabled: false,
+        enabled: true,
       },
     }),
     react(),
