@@ -151,7 +151,7 @@ export default function LeafletMap() {
   const markerRef = useRef<L.Marker | null>(null);
   const overlayRefs = useRef<Partial<Record<OverlayKey, L.Layer>>>({});
   const sunRef = useRef<L.LayerGroup | null>(null);
-  const [style, setStyle] = useState<StyleKey>(theme === "dark" ? "Satellite" : "Street");
+  const [style, setStyle] = useState<StyleKey>("Street");
   const [overlays, setOverlays] = useState<OverlayKey[]>([]);
   const [radar, setRadar] = useState<{ radar?: string | undefined; satellite?: string | undefined }>(
     {},
@@ -159,11 +159,6 @@ export default function LeafletMap() {
   const [streetView, setStreetView] = useState(false);
   const [copied, setCopied] = useState(false);
   const [shared, setShared] = useState(false);
-
-  // follow the app theme
-  useEffect(() => {
-    setStyle((s) => (theme === "dark" ? "Satellite" : s === "Satellite" || s === "Dark" ? "Street" : s));
-  }, [theme]);
 
   // latest RainViewer frames for the weather overlays (keyless)
   useEffect(() => {
@@ -219,7 +214,7 @@ export default function LeafletMap() {
       markerRef.current = L.marker([lat, lng], { icon })
         .addTo(map)
         .bindTooltip(place.name ? `${place.name}${place.country ? `, ${place.country}` : ""}` : "Location", {
-          permanent: true,
+          permanent: false,
           direction: "top",
           offset: [0, -14],
           className: "live-location-hover-tooltip",

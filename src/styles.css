@@ -754,3 +754,38 @@
     transparent 100%
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/* Custom Map Hover Tooltip & Clean White Pointer Arrow                       */
+/* -------------------------------------------------------------------------- */
+
+.leaflet-tooltip.live-location-hover-tooltip {
+  background-color: #2a303c !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-tooltip-top.live-location-hover-tooltip::before,
+.leaflet-tooltip-bottom.live-location-hover-tooltip::before,
+.leaflet-tooltip.live-location-hover-tooltip::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -6px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 6px solid transparent !important;
+  border-right: 6px solid transparent !important;
+  border-top: 6px solid #ffffff !important;
+  border-bottom: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  margin: 0 !important;
+}
