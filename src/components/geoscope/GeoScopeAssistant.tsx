@@ -288,10 +288,10 @@ export function GeoScopeAssistant() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group glass-strong relative flex items-center gap-2.5 rounded-full p-2.5 pr-4 shadow-2xl transition-all duration-300 hover:scale-105 border border-white/30"
+          className="group glass-strong relative grid h-12 w-12 place-items-center rounded-full p-2 shadow-2xl transition-all duration-300 hover:scale-110 border border-white/30"
           title="Open GeoScope Assistant"
         >
-          <div className="relative grid h-11 w-11 place-items-center rounded-full bg-primary/20 overflow-hidden p-1 shadow-inner border border-primary/30">
+          <div className="relative grid h-8 w-8 place-items-center rounded-full bg-primary/20 overflow-hidden p-0.5 shadow-inner border border-primary/30">
             <img
               src="/images/geoscope-icon-dark.png"
               alt="GeoScope AI"
@@ -302,11 +302,6 @@ export function GeoScopeAssistant() {
               alt="GeoScope AI"
               className="hidden h-full w-full object-contain dark:block"
             />
-          </div>
-          <div className="text-left pr-1">
-            <p className="text-xs font-bold leading-tight tracking-tight text-foreground">
-              GeoScope Assistant
-            </p>
           </div>
         </button>
       )}

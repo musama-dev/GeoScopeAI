@@ -3,16 +3,16 @@ import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark";
 const ThemeContext = createContext<{ theme: Theme; setTheme: (t: Theme) => void }>({
-  theme: "light",
+  theme: "dark",
   setTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("geoscope-theme") as Theme | null;
-    const initial: Theme = stored ?? "light";
+    const initial: Theme = stored ?? "dark";
     setThemeState(initial);
   }, []);
 
