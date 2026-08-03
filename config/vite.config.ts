@@ -17,9 +17,16 @@ function autoExitPlugin(): Plugin {
         try {
           const clientDir = path.resolve(__dirname, "../dist/client");
           const distDir = path.resolve(__dirname, "../dist");
+          const distIndex = path.resolve(distDir, "index.html");
+          const clientIndex = path.resolve(clientDir, "index.html");
+
           if (fs.existsSync(clientDir)) {
             fs.cpSync(clientDir, distDir, { recursive: true });
             console.log("✓ Copied dist/client to dist root");
+          }
+          if (fs.existsSync(distIndex) && fs.existsSync(clientDir)) {
+            fs.copyFileSync(distIndex, clientIndex);
+            console.log("✓ Copied dist/index.html to dist/client/index.html");
           }
         } catch (e) {
           console.error(e);
