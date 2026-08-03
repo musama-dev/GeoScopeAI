@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --config config/vite.config.ts",
-    "build": "vite build --config config/vite.config.ts && node -e \"const fs = require('fs'); fs.cpSync('dist/client', 'dist', {recursive: true});\"",
+    "build": "vite build --config config/vite.config.ts && node -e \"import fs from 'node:fs'; fs.cpSync('dist/client', 'dist', {recursive: true});\"",
     "build:dev": "vite build --mode development --config config/vite.config.ts",
     "preview": "vite preview --config config/vite.config.ts"
   },
