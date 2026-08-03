@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import "../styles.css"; // Ensure @tailwindcss/vite processes all utility classes
 import { reportAppError } from "../utils/error-reporting";
 
 function NotFoundComponent() {
