@@ -103,16 +103,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark" style={{ backgroundColor: "#0b0c14", color: "#f8fafc" }}>
+    <html lang="en">
       <head>
         <HeadContent />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';localStorage.setItem('geoscope-theme','dark');}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('geoscope-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}}catch(e){}})();`,
           }}
         />
       </head>
-      <body style={{ backgroundColor: "#0b0c14", color: "#f8fafc" }}>
+      <body>
         {children}
         <Scripts />
       </body>

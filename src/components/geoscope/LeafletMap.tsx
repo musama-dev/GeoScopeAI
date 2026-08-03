@@ -568,7 +568,7 @@ export default function LeafletMap() {
 
       <button
         onClick={copy}
-        className="glass-chip absolute bottom-4 left-1/2 z-[500] flex -translate-x-1/2 items-center gap-2 rounded-xl px-3 py-1.5 text-xs"
+        className="glass-chip absolute bottom-3 left-1/2 z-[500] flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-mono"
       >
         {copied ? (
           "Coordinates copied"
